@@ -23,17 +23,36 @@ def dice(arr):
     try:
             #filter through the throw list for fives and again for ones
         try:    
-            num = list(filter(lambda x: x == 5, throw))
-            numb = list(filter(lambda x: x == 1, throw))
-            total = reduce(lambda a, b: a + b, num)
-            totalb = reduce(lambda a, b: a + b, numb)
-            if total or totalb:
-                print('you have ones and fives')
-            elif total:
-                print('you have fives')
-            elif totalb:
-                print('you have ones')
-            else:print('i just cant wrap my head around it')
+            # num = list(filter(lambda x: x%5==0, throw))
+            num = [x for x in throw if x%5==0]
+            numb = [x for x in throw if x<2]
+            #function to reduce the lists 
+            def reduced(arr):
+                s=reduce(lambda a, b: a + b, arr)
+                if s:
+                    return s
+                else:return arr[0]
+                    
+            #check for num and numb
+            if num and numb:
+                print('you have ones AND fives')
+                s = reduced(num)
+                sb = reduced(numb)
+                sum = (s*10)+(sb*100)
+                print(sum)
+                #if they both occur check for each individually and 
+                # check for each total number of times they occur 
+                # then reduce those values to one value
+            elif num:
+                s = reduced(num)
+                print(f'your number was reduced to {s*10}')    
+                print('you have only fives')    
+            elif numb:
+                
+                s = reduced(numb)
+                print(f'your number was reduced to {s*100}')
+                print('you have only ones')    
+            else:print('you have no ones or no fives')    
         except:print('your logic is messed up')    
         
         

@@ -4,4 +4,6 @@
 > out has been a problem.
 >>## Why?
 >We figured that if we abstract a lot of it we could separate concerns and handle each thing as
->individually as possible
+>individually as possible.
+
+
