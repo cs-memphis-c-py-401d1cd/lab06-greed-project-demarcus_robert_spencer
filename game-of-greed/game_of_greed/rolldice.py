@@ -24,60 +24,43 @@ def dice(arr):
             #filter through the throw list for fives and again for ones
         try:    
             # num = list(filter(lambda x: x%5==0, throw))
-            num = [x for x in throw if x%5==0]
-            numb = [x for x in throw if x<2]
             #function to reduce the lists 
+            def filtered(n):
+                return [x for x in throw if x==n]
             def reduced(arr):
                 s=reduce(lambda a, b: a + b, arr)
                 if s:
                     return s
                 else:return arr[0]
-                    
+                
+            num = filtered(5)
+            numb = filtered(1)        
             #check for num and numb
             if num and numb:
                 print('you have ones AND fives')
                 s = reduced(num)
                 sb = reduced(numb)
                 sum = (s*10)+(sb*100)
+                score += sum
                 print(sum)
                 #if they both occur check for each individually and 
                 # check for each total number of times they occur 
                 # then reduce those values to one value
             elif num:
                 s = reduced(num)
-                print(f'your number was reduced to {s*10}')    
+                sa = s*10
+                print(f'your number was reduced to {sa}')   
+                score+=sa
                 print('you have only fives')    
             elif numb:
                 
                 s = reduced(numb)
-                print(f'your number was reduced to {s*100}')
+                sa = s*100
+                print(f'your number was reduced to {sa}')   
+                score+=sa
                 print('you have only ones')    
             else:print('you have no ones or no fives')    
         except:print('your logic is messed up')    
-        
-        
-        
-        
-        
-        
-        
-        # if num and numb:
-        #     s =functools.reduce(lambda a,b : a+b,num)
-        #     sa =functools.reduce(lambda a,b : a+b,numb)
-        # elif num:
-        #     s =functools.reduce(lambda a,b : a+b,num)
-        # elif numb:
-        #     sa =functools.reduce(lambda a,b : a+b,numb)   
-        # #filter the list of ones
-        # if sa and s:
-        #     score+=s*10+sa*100
-        # elif s:
-        #     score+=s*10
-        # elif sa:
-        #     score+=sa*100
-        # else:return              
-        # print(throw)
-        # print(score)
+        finally:print(f'score : {score}')
     except:print('what the fuvj')
     finally:print(throw)
-dice([1,2,3,4,5,6])

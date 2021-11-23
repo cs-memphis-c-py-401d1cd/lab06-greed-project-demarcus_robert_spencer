@@ -5,13 +5,13 @@ import functools
 from collections import Counter
 
 class game_logic:
-    def __init__(self,player,die):
+    def __init__(self,player):
         self.player = player
-        self.die = []
+        self.die = [1,2,3,4,5,6]
     def calculate_score(self):
         pass
     def roll_dice(self):
-        roll = random.choice(self.die)       
+        roll = rolldice.dice(self.die)       
         return roll
 
 
