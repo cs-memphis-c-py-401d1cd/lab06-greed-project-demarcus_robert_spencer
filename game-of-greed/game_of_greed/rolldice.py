@@ -27,7 +27,7 @@ def dice(arr):
             numb = list(filter(lambda x: x == 1, throw))
             total = reduce(lambda a, b: a + b, num)
             totalb = reduce(lambda a, b: a + b, numb)
-            if total or `` totalb:
+            if total or totalb:
                 print('you have ones and fives')
             elif total:
                 print('you have fives')
