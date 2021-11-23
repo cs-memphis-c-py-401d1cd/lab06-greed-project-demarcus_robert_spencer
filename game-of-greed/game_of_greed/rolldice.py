@@ -64,3 +64,5 @@ def dice(arr):
         finally:print(f'score : {score}')
     except:print('what the fuvj')
     finally:print(throw)
+    return [throw,score,num,numb]
+

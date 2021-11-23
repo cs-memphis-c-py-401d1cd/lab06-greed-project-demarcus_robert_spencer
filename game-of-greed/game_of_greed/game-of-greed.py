@@ -8,8 +8,10 @@ class game_logic:
     def __init__(self,player):
         self.player = player
         self.die = [1,2,3,4,5,6]
+
     def calculate_score(self):
         pass
+
     def roll_dice(self):
         roll = rolldice.dice(self.die)       
         return roll
