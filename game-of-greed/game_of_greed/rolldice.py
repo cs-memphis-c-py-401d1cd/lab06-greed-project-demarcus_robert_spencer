@@ -1,9 +1,7 @@
 import random
 from functools import reduce
 
-def dice(arr):
-    #container to hold all die
-    container = []
+def dice(arr, container):
     # list to hold the random thrown dice
     throw = []
     #init score to zero
@@ -64,5 +62,6 @@ def dice(arr):
         finally:print(f'score : {score}')
     except:print('what the fuvj')
     finally:print(throw)
-    return [throw,score,num,numb]
-
+    return [throw,score]
+    
+dice([1,2,3,4,5,6], [])
